@@ -3,7 +3,6 @@
 //console.log("wow");
 $(document).ready(() => {
     
-    
     $('#lookup').click(() => {
         let query = $('#country').val().trim();
         let url = "world.php";
