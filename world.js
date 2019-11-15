@@ -3,13 +3,13 @@
 //console.log("wow");
 $(document).ready(() => {
     
-    $('#lookup').click(() => {
+    function executeQuery(context='') {
         let query = $('#country').val().trim();
         let url = "world.php";
         if (query) {
-            query = '?country=' + query;
+            query = '?country=' + query + '&context=' + context;
         }
-        console.log("Query is " + query);
+        //console.log("Query is " + query);
         
         fetch(url + query)
         .then(response => {
@@ -17,5 +17,10 @@ $(document).ready(() => {
         }).then(data => {
             $('#result').html(data);
         });
+    }
+    
+    $('#lookup').click(executeQuery);
+    $('#lookup-cities').click(() => {
+        executeQuery('cities');
     })
 });
