@@ -12,7 +12,6 @@ if ($_GET):
     if (strlen($country) <= 50):
         $country = filter_var($country, FILTER_SANITIZE_STRING);
         $cntxt = filter_var($cntxt, FILTER_SANITIZE_STRING);
-        echo "<p>Context: ${cntxt} </p>";
         if ($cntxt !== 'cities'):
             $stmt = $conn->query("SELECT * FROM countries WHERE name LIKE '%$country%'");
         else:
